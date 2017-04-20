@@ -77,7 +77,7 @@
                                 <?php echo $invoice->user_name; ?>
                             </h3>
                             <p class="text-right">
-				<?php if ($invoice->client_custom_abn) {
+				<?php if ($invoice->user_custom_abn) {
                                     echo 'ABN: ' . $invoice->user_custom_abn. '<br/>';
                                 } ?>
                                 <?php if ($invoice->user_vat_id) {
