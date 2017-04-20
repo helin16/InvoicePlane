@@ -34,7 +34,12 @@
                         <div class="invoice-to">
                             <p><?php echo lang('bill_to'); ?>:</p>
                             <p><b><?php echo $invoice->client_name; ?></b><br/>
-                                <?php if ($invoice->client_vat_id) {
+                                <?php if ($invoice->client_custom_abn) {
+                                    echo 'ABN: ' . $invoice->client_custom_abn. '<br/>';
+                                } ?>
+
+				<?php echo '<br />'; ?>
+				<?php if ($invoice->client_vat_id) {
                                     echo lang('vat_id_short') . ': ' . $invoice->client_vat_id . '<br/>';
                                 } ?>
                                 <?php if ($invoice->client_tax_code) {
@@ -47,14 +52,15 @@
                                     echo $invoice->client_address_2 . '<br/>';
                                 } ?>
                                 <?php if ($invoice->client_city) {
-                                    echo $invoice->client_city . ' ';
-                                } ?>
-                                <?php if ($invoice->client_zip) {
-                                    echo $invoice->client_zip . '<br/>';
+                                    echo $invoice->client_city . '<br />';
                                 } ?>
                                 <?php if ($invoice->client_state) {
-                                    echo $invoice->client_state . '<br/>';
+                                    echo $invoice->client_state . ' ';
                                 } ?>
+				<?php if ($invoice->client_zip) {
+                                    echo $invoice->client_zip ;
+                                } ?>
+				<?php echo '<br />'; ?>
 
                                 <?php if ($invoice->client_phone) { ?>
                                     <?php echo lang('phone_abbr'); ?>: <?php echo $invoice->client_phone; ?><br/>
@@ -71,6 +77,9 @@
                                 <?php echo $invoice->user_name; ?>
                             </h3>
                             <p class="text-right">
+				<?php if ($invoice->client_custom_abn) {
+                                    echo 'ABN: ' . $invoice->user_custom_abn. '<br/>';
+                                } ?>
                                 <?php if ($invoice->user_vat_id) {
                                     echo lang('vat_id_short') . ': ' . $invoice->user_vat_id . '<br/>';
                                 } ?>

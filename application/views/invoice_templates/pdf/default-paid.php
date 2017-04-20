@@ -34,7 +34,10 @@
                         <div class="invoice-to">
                             <p><?php echo lang('bill_to'); ?>:</p>
                             <p><b><?php echo $invoice->client_name; ?></b><br/>
-                                <?php if ($invoice->client_vat_id) {
+                                <?php if ($invoice->client_custom_abn) {
+                                    echo 'ABN: ' . $invoice->client_custom_abn. '<br/>';
+                                } ?>
+				<?php if ($invoice->client_vat_id) {
                                     echo lang('vat_id_short') . ': ' . $invoice->client_vat_id . '<br/>';
                                 } ?>
                                 <?php if ($invoice->client_tax_code) {
